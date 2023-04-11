@@ -22,5 +22,21 @@ module.exports = {
 		project: ['./tsconfig.json', './tsconfig.node.json'],
 	},
 	plugins: ['react', '@typescript-eslint'],
+	settings: {
+		react: { version: 'detect' },
+		'import/resolver': {
+			alias: {
+				map: [
+					['@components', './src/components'],
+					['@hooks', './src/hooks'],
+					['@images', './src/assets/images'],
+					['@utils', './src/utils'],
+					['@context', './src/context'],
+					['@public', './public'],
+				],
+				extensions: ['.js', '.ts', '.jsx', '.tsx'],
+			},
+		},
+	},
 	rules: { 'react/react-in-jsx-scope': 0 },
 };

@@ -14,7 +14,14 @@
 		"resolveJsonModule": true,
 		"isolatedModules": true,
 		"noEmit": true,
-		"jsx": "react-jsx"
+		"jsx": "react-jsx",
+		"paths": {
+			"@components/*": ["./src/components/*"],
+			"@hooks/*": ["./src/hooks/*"],
+			"@images/*": ["./src/assets/images/*"],
+			"@utils/*": ["./src/utils/*"],
+			"@context/*": ["./src/context/*"]
+		}
 	},
 	"include": [".eslintrc.cjs", "src"],
 	"references": [{ "path": "./tsconfig.node.json" }]

@@ -1,4 +1,4 @@
-import sayHello from './utils';
+import Hello from '@components/Hello';
 
 const App = () => (
 	<div
@@ -10,7 +10,7 @@ const App = () => (
 			width: '100%',
 		}}
 	>
-		<h1>{sayHello('Hello world')} !!!</h1>
+		<Hello />
 	</div>
 );
 
