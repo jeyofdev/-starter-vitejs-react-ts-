@@ -1,3 +1,5 @@
+import sayHello from './utils';
+
 const App = () => (
 	<div
 		style={{
@@ -8,7 +10,7 @@ const App = () => (
 			width: '100%',
 		}}
 	>
-		<h1>Hello world !!!</h1>
+		<h1>{sayHello('Hello world')} !!!</h1>
 	</div>
 );
 
