@@ -24,6 +24,7 @@
 /**/yarn-error.log*
 
 /**/*.lock
+/**/package-lock.json
 
 /.pnp.cjs
 /.pnp.loader.mjs
