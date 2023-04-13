@@ -2,46 +2,33 @@
 
 Setting up a React Project with Vite, TypeScript, ESLint, prettier, Husky and vitest.
 
-### Features
+### Tools
 
--   [vite](https://vitejs.dev/).
--   [eslint](https://eslint.org/), [typescript-eslint](https://typescript-eslint.io/), [eslint-airbnb-config](https://github.com/airbnb/javascript).
--   [prettier](https://prettier.io/).
--   [husky](https://typicode.github.io/husky/).
--   [vitest](https://vitest.dev/).
+-   [vite](https://vitejs.dev/) Next generation frontend tooling.
+-   [ESLint](https://eslint.org/) Find and fix problems in JavaScript and typescript code.
+-   [Prettier](https://prettier.io/) Code formatter.
+-   [husky](https://typicode.github.io/husky) Husky improves your commits.
+-   [vitest](https://vitest.dev/) Testing with viteJs.
+
+## Getting starting
 
 ### Prerequisites
 
-Check that [`Nodejs`](https://nodejs.org/en/download/) is installed :
-
-```sh
-$ node -v
-```
+-   Recommended `node` : `>=16.13.0`
+-   `npm` or `pnpm` or `yarn`-v
 
 ### Dependencies
 
 Install all dependencies :
 
-```sh
-$ npm install
-```
+`npm install` or `pnpm install` or `yarn`
 
-### Scripts
+## Scripts
 
-Development mode :
+### Dev server
 
-```bash
-$ npm run dev
-```
+`npm run dev` or `pnpm run dev` or `yarn run dev`.
 
-Run linter :
+### Build for production
 
-```
-$ npm run linter
-```
-
-Run test with Vitest :
-
-```
-$ npm run linter
-```
+`npm run build` or `pnpm run build` or `yarn run build`
