@@ -8,7 +8,8 @@
 ### Tools
 
 -  [Vite](https://vitejs.dev/) Next generation frontend tooling.
--  [vitest](https://vitest.dev/) Testing with viteJs.
+-  [React](https://react.dev/) The library for web and native user interfaces.
+-  [Vitest](https://vitest.dev/) Testing with viteJs.
 -  [Typescript](https://www.typescriptlang.org/) JavaScript with syntax for types.
 -  [ESLint](https://eslint.org/) Find and fix problems in JavaScript and typescript code.
 -  [Prettier](https://prettier.io/) Code formatter.
