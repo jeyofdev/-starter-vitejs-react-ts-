@@ -2,10 +2,8 @@
 
 <div align="center">
   <img src="https://user-images.githubusercontent.com/46073105/233133567-c8a1798a-f030-4f4b-be5f-d35b1d8428a6.png" width="60%">
+  <p>Setting up a React Project with Vite, TypeScript, ESLint, prettier, Husky and vitest.</p>
 </div>
-
-
-Setting up a React Project with Vite, TypeScript, ESLint, prettier, Husky and vitest.
 
 ### Tools
 
