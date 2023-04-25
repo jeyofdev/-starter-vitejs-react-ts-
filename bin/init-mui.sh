@@ -1,59 +1,104 @@
-rm -r src/globalTheme.ts
+rm -r postcss.config.js
+rm -r tailwind.config.js
 
-echo "Adding tailwindcss, postcss and autoprefixer as a dependency"
-npm install -D tailwindcss postcss autoprefixer
+echo "Adding @mui/material @emotion/react @emotion/styled as a dependency"
+npm install @mui/material @emotion/react @emotion/styled
+echo "Ok"
+
+echo "Adding icons"
+npm install @mui/icons-material
+
+cat <<EOT > index.html
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<link rel="icon" type="image/svg+xml" href="/vite.svg" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Vite + React + TS</title>
+
+		<link
+			rel="stylesheet"
+			href="https://fonts.googleapis.com/icon?family=Material+Icons"
+		/>
+	</head>
+
+	<body>
+		<div id="root"></div>
+		<script type="module" src="/src/main.tsx"></script>
+	</body>
+</html>
+EOT
+echo "Ok"
+
+echo "Adding theme"
+touch src/globalTheme.ts
+cat <<EOT > src/globalTheme.ts
+import { createTheme } from '@mui/material/styles';
+
+const theme = createTheme({
+	breakpoints: {
+		values: {
+			xs: 0,
+			sm: 600,
+			md: 960,
+			lg: 1280,
+			xl: 1920,
+		},
+	},
+});
+
+// A custom theme for this app
+const globalTheme = createTheme({
+	...theme,
+	typography: {
+		h1: {
+			fontSize: '1rem',
+			[theme.breakpoints.up('sm')]: {
+				fontSize: '1.15rem',
+			},
+			[theme.breakpoints.up('md')]: {
+				fontSize: '1.25rem',
+			},
+			[theme.breakpoints.up('lg')]: {
+				fontSize: '2.35rem',
+			},
+			[theme.breakpoints.up('xl')]: {
+				fontSize: '1.5rem',
+			},
+		},
+	},
+	palette: {
+		info: {
+			main: 'rgb(219, 234, 254)',
+		},
+	},
+});
+
+export default globalTheme;
+
+EOT
 
 cat <<EOT > src/main.tsx
+import { ThemeProvider } from '@mui/material';
 import * as React from 'react';
 import * as ReactDOM from 'react-dom/client';
 import App from './App';
+import theme from './globalTheme';
 import './index.css';
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
 	<React.StrictMode>
-		<App />
+    <ThemeProvider theme={theme}>
+			<App />
+    </ThemeProvider>
 	</React.StrictMode>,
 );
 
 EOT
+echo "Ok"
 
-echo "Init tailwind config file"
-cat <<EOT > tailwind.config.js
-/** @type {import('tailwindcss').Config} */
-
-export default {
-	content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
-	theme: {
-		extend: {},
-	},
-	plugins: [],
-};
-
-EOT
-
-cat <<EOT > tailwind.config.js
-/** @type {import('tailwindcss').Config} */
-
-export default {
-	content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
-	theme: {
-		extend: {},
-	},
-	plugins: [],
-};
-
-EOT
-
-cat <<EOT > postcss.config.js
-export default {
-	plugins: {
-		tailwindcss: {},
-		autoprefixer: {},
-	},
-};
-
-EOT
-
+echo "set config"
 cat <<EOT > .eslintrc.cjs
 module.exports = {
 	env: {
@@ -79,8 +124,6 @@ module.exports = {
 		project: [
 			'./tsconfig.json',
 			'./tsconfig.node.json',
-			'./postcss.config.js',
-			'./tailwind.config.js',
 		],
 	},
 	plugins: ['react', '@typescript-eslint'],
@@ -134,37 +177,16 @@ cat <<EOT > tsconfig.json
 			"@context/*": ["./src/context/*"]
 		}
 	},
-	"include": [
-    ".eslintrc.cjs",
-    "./postcss.config.js",
-    "./tailwind.config.js",
-    "src"
-  ],
+	"include": [".eslintrc.cjs", "src"],
 	"references": [{ "path": "./tsconfig.node.json" }]
 }
 
 EOT
 
-cat <<EOT > src/components/Hello.tsx
-import sayHello from '@utils/index';
-
-const Hello = () => <h1>{sayHello('Hello world')} !!!</h1>;
-
-export default Hello;
-
-EOT
-
-
-EOT
-
-echo "Add the Tailwind directives to your CSS"
+echo "reset css"
 cat <<EOT > src/index.css
 /* global css */
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
 EOT
 
-echo "✅ ✅ TailwindCss ui is now ready to use ✅ ✅"
+echo "✅ ✅ Material ui is now ready to use ✅ ✅"

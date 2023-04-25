@@ -10,6 +10,7 @@ const App = () => (
 );
 
 export default App;
+
 EOT
 
-echo "✅ ✅ TailwindCss is used on components App and Home ✅ ✅"
+echo "✅ ✅ TailwindCss is used on components App ✅ ✅"
