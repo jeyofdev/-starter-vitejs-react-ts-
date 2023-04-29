@@ -1,0 +1,12 @@
+name: main-workflow
+
+on: pull_request
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v2
+      - name: run tests
+        run: npm i && npm tests
