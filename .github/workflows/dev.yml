@@ -1,0 +1,16 @@
+name: PR on develop
+
+on: pull_request
+
+jobs:
+  initial:
+    runs-on: ubuntu-latest
+    name: A job to say hello
+    steps:
+      - name: Hello world action step
+        id: hello
+        uses: jeyofdev/test-ci@v1.2
+        with:
+          who-to-greet: 'Mona the Octocat'
+      - name: Get the output time
+        run: echo "The time was ${{ steps.hello.outputs.time }}"
