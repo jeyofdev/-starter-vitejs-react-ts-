@@ -1,6 +1,6 @@
 name: init-workflow
 
-on: pull_request
+on: [push]
 
 jobs:
   initial_job:
