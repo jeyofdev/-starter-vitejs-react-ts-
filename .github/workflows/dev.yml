@@ -1,16 +1,12 @@
-name: PR on develop
+name: tests-workflow
 
 on: pull_request
 
 jobs:
-  initial:
+  test:
     runs-on: ubuntu-latest
-    name: A job to say hello
     steps:
-      - name: Hello world action step
-        id: hello
-        uses: jeyofdev/starter-vitejs-react-ts@v1.2
-        with:
-          who-to-greet: 'Mona the Octocat'
-      - name: Get the output time
-        run: echo "The time was ${{ steps.hello.outputs.time }}"
+      - name: Check out code
+        uses: actions/checkout@v2
+      - name: run tests
+        run: npm i && npm test
