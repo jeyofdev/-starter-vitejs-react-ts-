@@ -1,12 +1,16 @@
-name: tests-workflow
+name: init-workflow
 
 on: pull_request
 
 jobs:
-  test:
+  initial_job:
     runs-on: ubuntu-latest
+    name: A job to say hello
     steps:
-      - name: Check out code
-        uses: actions/checkout@v2
-      - name: run tests
-        run: npm i && npm tests
+      - name: Hello world action step
+        id: hello
+        uses: jeyofdev/test-ci@v1.2
+        with:
+          who-to-greet: 'Mona the Octocat'
+      - name: Get the output time
+        run: echo "The time was ${{ steps.hello.outputs.time }}"
